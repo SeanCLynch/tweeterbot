@@ -11,6 +11,7 @@ var T = new Twit({
 });
 
 function startTweeting() { 
+	// You can reset this if you need to stop the bot, or it stops for whatever reason
 	var count = 0;
 
 	setInterval( function() {
@@ -22,7 +23,7 @@ function startTweeting() {
 
 			console.log("Tweet #: "+count+" ---------------");
 
-			var text = lines[count];
+			var text = lines[count] +" "+lines[count+1];
 			var params = { 'status': text };
 			console.log("Params = " + JSON.stringify(params));
 
@@ -35,8 +36,8 @@ function startTweeting() {
 		 	}
 		});
 
-	count = count + 1;
-	}, 120000);
+	count = count + 2;
+	}, 900000);
 }
 
 startTweeting();
